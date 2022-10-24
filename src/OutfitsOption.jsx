@@ -1,12 +1,15 @@
-import React from "react";
+import React, {useContext} from "react";
 import OutfitsOptionCard from './OutfitsOptionCard';
+import DataContext from './context/DataContext';
 
-const OutfitsOption = ({outfits, selectedWeakDay, handleOutfitCardClick}) => {
+const OutfitsOption = () => {
+
+    const { outfits } = useContext(DataContext);
+
     return (
        outfits.map((outfit) => (
-           <OutfitsOptionCard outfit={outfit}
-               handleOutfitCardClick = {handleOutfitCardClick}
-                              selectedWeakDay = {selectedWeakDay} />
+           <OutfitsOptionCard key = { outfit.id } outfit={outfit} />
+
        ))
     )
 

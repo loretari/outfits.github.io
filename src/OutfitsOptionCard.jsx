@@ -15,8 +15,11 @@ import midiDress from "./images/midiDress.jpg";
 import platformPumps from "./images/platformPumps.jpg";
 import shoulderBag from "./images/shoulderBag.jpg";
 import goldRing from "./images/goldRing.jpg";
+import { useContext } from 'react';
+import DataContext from './context/DataContext';
 
-const OutfitsOptionCard = ({outfit, selectedWeakDay, handleOutfitCardClick}) => {
+const OutfitsOptionCard = ({ outfit }) => {
+    const { handleOutfitCardClick, selectedWeakDay } = useContext(DataContext);
     return (
 
         <div key={outfit.id} id={outfit.id} className={(outfit.weakDay === selectedWeakDay ? "card m-2 standout" : "card m-2")} style={{cursor:"pointer"}} onClick={handleOutfitCardClick}>

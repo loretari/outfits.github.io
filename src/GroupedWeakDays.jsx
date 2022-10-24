@@ -6,9 +6,7 @@ const GroupedWeakDays = ({outfits, selectedWeakDay, setWeakDay}) => {
 
     const [groupedOutfits, setGroupedData] = useState(groupWeakDaysOutfits);
 
-    function groupWeakDaysOutfits()
-
-    {
+    function groupWeakDaysOutfits() {
         var days = [];
 
         var mondayOutfit = outfits.filter((outfit) => outfit.weakDay === 'Monday');
@@ -26,7 +24,8 @@ const GroupedWeakDays = ({outfits, selectedWeakDay, setWeakDay}) => {
         var fridayOutfit = outfits.filter((outfit) => outfit.weakDay ==='Friday');
         var friday = {day: 'Friday', options: fridayOutfit, collapsed: selectedWeakDay === 'Friday' ? false:true};
         days.push(friday);
-console.log(days);
+
+         console.log(days);
         return days;
     }
     
@@ -54,7 +53,7 @@ console.log(days);
                                 <hr/>
 
                                 {
-                                    item.options.map((option) => {
+                                    item.options.map(option => {
                                         return (
                                             <div key={option.id} className = "mt-2">
                                                 <h5 className = "card-title mt-2">
