@@ -1,6 +1,10 @@
-import React from "react";
+import React, {useContext} from "react";
+import DataContext from './context/DataContext';
 
-const Days = ({selectedWeakDay, handleWeakDaySelectionChange}) => {
+
+const Days = () => {
+    const {selectedWeakDay, handleWeakDaySelectionChange} = useContext(DataContext);
+
     return (
         <select className="form-select form-select-lg" value={selectedWeakDay} onChange={handleWeakDaySelectionChange}>
             <option vlalue="Monday">Monday</option>

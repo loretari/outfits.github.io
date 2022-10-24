@@ -1,9 +1,11 @@
 import React from "react";
-import {useState} from 'react';
+import {useState, useContext} from 'react';
+import DataContext from './context/DataContext';
 
 
-const GroupedWeakDays = ({outfits, selectedWeakDay, setWeakDay}) => {
+const GroupedWeakDays = () => {
 
+    const {outfits, selectedWeakDay, setWeakDay} = useContext(DataContext);
     const [groupedOutfits, setGroupedData] = useState(groupWeakDaysOutfits);
 
     function groupWeakDaysOutfits() {
@@ -41,8 +43,7 @@ const GroupedWeakDays = ({outfits, selectedWeakDay, setWeakDay}) => {
     
     return (
         <main className="container">
-            {
-                groupedOutfits.map((item) => {
+            { groupedOutfits.map((item) => {
                     return (
                         <div key={item.day} className = "card mt-2" style={{cursor: "pointer"}}>
                             <h4 id={item.day} className = "card-header text-secondary bg-white" onClick = {handleDayClick}>
